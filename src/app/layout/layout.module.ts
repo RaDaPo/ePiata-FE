@@ -4,6 +4,7 @@ import { DashboardLayoutComponent } from './dashboard-layout/dashboard-layout/da
 import { AuthLayoutComponent } from './auth-layout/auth-layout/auth-layout.component';
 import { GeneralLayoutComponent } from './general-layout/general-layout/general-layout.component';
 import { GeneralLayoutHeaderComponent } from './general-layout/general-layout-header/general-layout-header.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { GeneralLayoutHeaderComponent } from './general-layout/general-layout-he
     GeneralLayoutHeaderComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
   ]
 })
 export class LayoutModule { }
