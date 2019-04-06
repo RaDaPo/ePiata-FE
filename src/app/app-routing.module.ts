@@ -21,7 +21,11 @@ const routes: Routes = [
     component: GeneralLayoutComponent,
     children: [
       {
-        path: 'announcement',
+        path: 'announcement/:category/:county',
+        component: AnnouncementOverviewComponent
+      },
+      {
+        path: 'announcement/:category/:county/:searchTerm',
         component: AnnouncementOverviewComponent
       }
     ]

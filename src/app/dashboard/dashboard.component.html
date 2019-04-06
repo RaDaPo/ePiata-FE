@@ -1,3 +1,48 @@
-<p>
-  dashboard works!
-</p>
+<div class="dashboard d-flex align-items-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <img src="../../assets/images/logo.png" class="img-fluid" alt="Logo">
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-12 offset-sm-2 col-sm-8">
+                <div class="input-group">
+                    <input class="form-control search-input"
+                        type="text"
+                        placeholder="Ce doresti sa cumperi azi?"
+                        [(ngModel)]="searchTerm"/>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-12 offset-sm-2 col-sm-8">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <ng-select [options]="categories"
+                            [displayKey]="displayKey"
+                            [styleGuide]="styleGuide"
+                            [searchKeys]="searchKeys"
+                            (onChange)="onChangeCategory($event)"></ng-select>
+                    </div>
+                    <div *ngIf="counties" class="col-sm-6">
+                        <ng-select [options]="counties"
+                            [displayKey]="displayKey"
+                            [styleGuide]="styleGuide"
+                            [searchKeys]="searchKeys"
+                            (onChange)="onChangeCounty($event)"></ng-select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col text-center">
+                <button type="button"
+                    class="btn btn-primary btn-lg text-left"
+                    (click)="searchAnnouncements()">
+                    <i class="fa fa-search"></i> Cauta
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

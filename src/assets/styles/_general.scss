@@ -1,0 +1,106 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:500,700");
+
+body {
+    font-family: 'Montserrat';
+}
+/* Select */
+.dropdown-wrapper {
+    width: 100%;
+    padding: 12px 16px;
+    border: 3px solid #FFF;
+    cursor: pointer;
+    outline: none;
+    color: #FFF;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    &:focus {
+        // border: 1px solid #80bdff;
+    }
+    input {
+        background: transparent;
+        font-size: 20px;
+        color: #FFF;
+    }
+    .dropdown {
+        padding-left: 0;
+        background: #fff;
+        border-radius: 0 0 5px 5px;
+        border: 1px solid rgb(206, 205, 201);
+        border-top: none;
+        box-sizing: border-box;
+        max-height: 203px;
+        border-bottom: 1px solid rgb(206, 205, 201);
+        .option:hover  {
+            color: #9a9a9a;
+        }
+        .option {
+            padding: 0.8em;
+            border-bottom: 1px solid rgb(206, 205, 201);
+            text-decoration: none;
+            color: rgb(110, 108, 105);
+        }
+    }
+    .caret {
+        right: 12px!important;
+    }
+    .caret {
+        &::after {
+            content: "▼";
+            text-align: center;
+        }
+    }
+}
+
+/* Buttons */
+.btn {
+    background-size: 200% auto;
+    border: none;
+    padding: 12px 25px;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    transition: 0.5s;
+    min-width: 250px;
+    -webkit-box-shadow: 0px 6px 17px 0px rgba(0,0,0,0.39);
+    -moz-box-shadow: 0px 6px 17px 0px rgba(0,0,0,0.39);
+    box-shadow: 0px 6px 17px 0px rgba(0,0,0,0.39);
+    &.btn-primary {
+        background-image: linear-gradient(to right, #768bb9 0%, #7cd8d9 51%, #768bb9 100%);
+    }
+    &.btn:hover {
+        background-position: right center;
+    }
+}
+
+/* Placeholder */
+.form-control::-webkit-input-placeholder {
+    color: #9a9a9a;
+}
+.form-control::-moz-placeholder {
+    color: #9a9a9a;
+}
+.form-control:-ms-input-placeholder {
+    color: #9a9a9a;
+}
+.form-control:-moz-placeholder {
+    color: #9a9a9a;
+}
+
+/* Inputs */
+.search-input {
+    width: 100%;
+    padding: 15px;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    -webkit-box-shadow: 0px 6px 17px 0px rgba(0,0,0,0.39);
+    -moz-box-shadow: 0px 6px 17px 0px rgba(0,0,0,0.39);
+    box-shadow: 0px 6px 17px 0px rgba(0,0,0,0.39);
+}
+.search-input:focus {
+    background: #FFF;
+}
