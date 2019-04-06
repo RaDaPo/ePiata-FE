@@ -36,6 +36,7 @@ export class DashboardComponent implements OnInit {
     ngOnInit() {
         this.getCounties();
         this.getCategories();
+        this.getUserLocation();
     }
 
     getCounties() {
@@ -80,6 +81,30 @@ export class DashboardComponent implements OnInit {
 
         const url = '/announcements/' + category + '/' + county + '/' + this.searchTerm;
         this.router.navigateByUrl(url);
+    }
+
+    getUserLocation() {
+        if (window.navigator && window.navigator.geolocation) {
+            window.navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    localStorage.setItem('latitude', position.coords.latitude.toString());
+                    localStorage.setItem('longitute', position.coords.longitude.toString());
+                },
+                error => {
+                    switch (error.code) {
+                        case 1:
+                            console.log('Permission Denied');
+                            break;
+                        case 2:
+                            console.log('Position Unavailable');
+                            break;
+                        case 3:
+                            console.log('Timeout');
+                            break;
+                    }
+                }
+            );
+        }
     }
 
 }

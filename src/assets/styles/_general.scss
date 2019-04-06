@@ -9,6 +9,18 @@ body {
 .back-button {
     font-size: 22px;
 }
+.navbar {
+    background-image: linear-gradient(to right, #a2ff83 , #7effca);
+
+    .container {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+}
+.color-white {
+    color: #FFF;
+}
+
 /* Select */
 .dropdown-wrapper {
     width: 100%;
@@ -27,6 +39,7 @@ body {
         border-bottom-right-radius: 0;
     }
     input {
+        cursor: pointer;
         background: transparent;
         font-size: 20px;
         color: #FFF;
