@@ -7,13 +7,19 @@ import { GeneralLayoutHeaderComponent } from './general-layout/general-layout-he
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { NgSelectModule } from 'ng-custom-select';
+import { UserLayoutComponent } from './user-layout/user-layout/user-layout.component';
+import { UserLayoutHeaderComponent } from './user-layout/user-layout-header/user-layout-header.component';
+import { UserLayoutSidebarComponent } from './user-layout/user-layout-sidebar/user-layout-sidebar.component';
 
 @NgModule({
     declarations: [
         DashboardLayoutComponent,
         AuthLayoutComponent,
         GeneralLayoutComponent,
-        GeneralLayoutHeaderComponent
+        GeneralLayoutHeaderComponent,
+        UserLayoutComponent,
+        UserLayoutHeaderComponent,
+        UserLayoutSidebarComponent
     ],
     imports: [
         CommonModule,

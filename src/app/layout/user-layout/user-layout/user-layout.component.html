@@ -1,0 +1,19 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <app-user-layout-header class="w-100"></app-user-layout-header>
+    </div>
+</nav>
+
+<div class="wrapper">
+    <nav id="sidebar">
+        <app-user-layout-sidebar></app-user-layout-sidebar>
+    </nav>
+    
+    <div id="content">
+        <div class="container-fluid">
+            <div class="toggle-sidebar mb-2"(click)="toggleSidebar()">
+                <i class="fa fa-times"></i>
+            </div>
+        </div>
+    </div>
+</div>

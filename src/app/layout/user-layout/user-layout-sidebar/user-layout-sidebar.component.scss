@@ -1,0 +1,17 @@
+.list-group {
+    .list-group-item {
+        background: transparent;
+        border: none;
+        font-size: 20px;
+        cursor: pointer;
+
+        i {
+            padding-right: 5px;
+        }
+    }
+    .list-group-item {
+        &:hover {
+            color: rgba(255,255,255,.8);
+        }
+    }
+}

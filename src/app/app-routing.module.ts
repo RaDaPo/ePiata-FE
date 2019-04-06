@@ -5,6 +5,8 @@ import { AnnouncementOverviewComponent } from './announcement/announcement-overv
 import { GeneralLayoutComponent } from './layout/general-layout/general-layout/general-layout.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AnnouncementComponent } from './announcement/announcement/announcement.component';
+import { UserLayoutComponent } from './layout/user-layout/user-layout/user-layout.component';
+import { UserAnnouncementsComponent } from './user/user-announcements/user-announcements.component';
 
 const routes: Routes = [
   {
@@ -44,6 +46,20 @@ const routes: Routes = [
       {
         path: '',
         component: AnnouncementComponent
+      }
+    ]
+  },
+  {
+    path: 'user/:id',
+    redirectTo: 'user/:id/announcements'
+  },
+  {
+    path: 'user/:id/announcements',
+    component: UserLayoutComponent,
+    children: [
+      {
+        path: '',
+        component: UserAnnouncementsComponent
       }
     ]
   }
