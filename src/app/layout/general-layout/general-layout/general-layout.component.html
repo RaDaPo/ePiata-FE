@@ -1,2 +1,5 @@
-<app-general-layout-header></app-general-layout-header>
+<app-general-layout-header *ngIf="routeParams"
+    [searchTerm]="searchTerm"
+    [category]="category"
+    [county]="county"></app-general-layout-header>
 <router-outlet></router-outlet>

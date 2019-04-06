@@ -17,15 +17,21 @@ const routes: Routes = [
     ]
   },
   {
-    path: '',
+    path: 'announcements/:category/:county',
     component: GeneralLayoutComponent,
     children: [
       {
-        path: 'announcement/:category/:county',
+        path: '',
         component: AnnouncementOverviewComponent
-      },
+      }
+    ]
+  },
+  {
+    path: 'announcements/:category/:county/:searchTerm',
+    component: GeneralLayoutComponent,
+    children: [
       {
-        path: 'announcement/:category/:county/:searchTerm',
+        path: '',
         component: AnnouncementOverviewComponent
       }
     ]

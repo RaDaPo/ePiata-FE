@@ -1,0 +1,17 @@
+.navbar {
+    background-image: linear-gradient(to right, #a2ff83 , #7effca);
+
+    .container {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+}
+
+::ng-deep .dropdown-wrapper {
+    color: #3c3c3c;
+    border-color: #3c3c3c;
+
+    input {
+        color: #3c3c3c;
+    }
+}

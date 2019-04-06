@@ -3,6 +3,9 @@
 body {
     font-family: 'Montserrat';
 }
+.font-bold {
+    font-weight: bold!important;
+}
 /* Select */
 .dropdown-wrapper {
     width: 100%;
@@ -15,9 +18,6 @@ body {
     border-bottom-left-radius: 30px;
     border-top-right-radius: 30px;
     border-bottom-right-radius: 30px;
-    &:focus {
-        // border: 1px solid #80bdff;
-    }
     input {
         background: transparent;
         font-size: 20px;
@@ -57,7 +57,7 @@ body {
 .btn {
     background-size: 200% auto;
     border: none;
-    padding: 12px 25px;
+    padding: 15px 25px;
     border-top-left-radius: 30px;
     border-bottom-left-radius: 30px;
     border-top-right-radius: 30px;
@@ -92,7 +92,8 @@ body {
 /* Inputs */
 .search-input {
     width: 100%;
-    padding: 15px;
+    padding: 30px;
+    font-size: 22px;
     border-top-left-radius: 30px;
     border-bottom-left-radius: 30px;
     border-top-right-radius: 30px;
@@ -103,4 +104,20 @@ body {
 }
 .search-input:focus {
     background: #FFF;
+}
+
+/* Card */
+.card {
+    border-radius: 15px;
+    -webkit-box-shadow: 0px 6px 17px 0px rgba(0,0,0,0.39);
+    -moz-box-shadow: 0px 6px 17px 0px rgba(0,0,0,0.39);
+    box-shadow: 0px 6px 17px 0px rgba(0,0,0,0.39);
+
+    .card-img-top {
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+    }
+    .card-title {
+        font-weight: bold;
+    }
 }

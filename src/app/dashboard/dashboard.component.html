@@ -18,7 +18,7 @@
         <div class="row mt-4">
             <div class="col-12 offset-sm-2 col-sm-8">
                 <div class="row">
-                    <div class="col-sm-6">
+                    <div *ngIf="categories" class="col-sm-6">
                         <ng-select [options]="categories"
                             [displayKey]="displayKey"
                             [styleGuide]="styleGuide"

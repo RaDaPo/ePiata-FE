@@ -1,3 +1,50 @@
-<p>
-  general-layout-header works!
-</p>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <div class="row w-100">
+            <div class="col-6 col-sm-4">
+                <div class="input-group">
+                    <input class="form-control search-input"
+                        type="text"
+                        placeholder="Ce doresti sa cumperi azi?"
+                        [(ngModel)]="searchTerm"/>
+                </div>
+            </div>
+            <div class="col-6 col-sm-4">
+                <button type="button"
+                    class="btn btn-primary btn-lg text-left">
+                    <i class="fa fa-search"></i> Cauta
+                </button>
+            </div>
+        </div>
+    </div>
+</nav>
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-12 col-sm-6">
+            <div class="row">
+                <div *ngIf="categories" class="col-6">
+                    <ng-select [options]="categories"
+                        [displayKey]="displayKey"
+                        [styleGuide]="styleGuide"
+                        [searchKeys]="searchKeys"
+                        [(ngModel)]="category"></ng-select>
+                </div>
+                <div *ngIf="counties" class="col-6">
+                    <ng-select [options]="counties"
+                    [displayKey]="displayKey"
+                    [styleGuide]="styleGuide"
+                    [searchKeys]="searchKeys"
+                    [(ngModel)]="county"></ng-select>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 offset-sm-4 col-sm-2 text-right">
+            <ng-select class="text-left" 
+                [options]="filters"
+                [displayKey]="displayKey"
+                [styleGuide]="styleGuide"
+                [searchKeys]="searchKeys"
+                (onChange)="onChangeFilter($event)"></ng-select>
+        </div>
+    </div>
+</div>

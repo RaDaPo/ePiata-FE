@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DashboardService } from './services/dashboard.service';
 import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import { CategoryItem } from '../models/category-item';
 
 @Component({
     selector: 'app-dashboard',
@@ -10,12 +11,7 @@ import { Router } from '@angular/router';
 })
 export class DashboardComponent implements OnInit {
 
-    categories = [
-        { 'key': 'Rosii', 'value': 'Rosii' },
-        { 'key': 'Cartofi', 'value': 'Cartofi' },
-        { 'key': 'Porumb', 'value': 'Porumb' },
-        { 'key': 'Grau', 'value': 'Grau' }
-    ];
+    categories: Array<CategoryItem>;
     counties: any;
 
     displayKey = 'key';
@@ -38,6 +34,7 @@ export class DashboardComponent implements OnInit {
 
     ngOnInit() {
         this.getCounties();
+        this.getCategories();
     }
 
     getCounties() {
@@ -48,6 +45,15 @@ export class DashboardComponent implements OnInit {
                         { 'key': 'Judet', 'value': '' }
                     ];
                     this.counties = this.counties.concat(counties);
+                }
+            );
+    }
+
+    getCategories() {
+        this.dashboardService.getCategories()
+            .subscribe(
+                (categories) => {
+                    this.categories = categories;
                 }
             );
     }
@@ -71,7 +77,7 @@ export class DashboardComponent implements OnInit {
             county = this.county.value;
         }
 
-        const url = '/announcement/' + category + '/' + county + '/' + this.searchTerm;
+        const url = '/announcements/' + category + '/' + county + '/' + this.searchTerm;
         this.router.navigateByUrl(url);
     }
 
