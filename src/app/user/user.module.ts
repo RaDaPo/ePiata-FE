@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { UserAnnouncementsComponent } from './user-announcements/user-announcements.component';
+import { UserOffersComponent } from './user-offers/user-offers.component';
 
 @NgModule({
-  declarations: [UserAnnouncementsComponent],
-  imports: [
-    CommonModule
-  ]
+    declarations: [UserOffersComponent],
+    imports: [
+        CommonModule
+    ]
 })
 export class UserModule { }

@@ -14,7 +14,7 @@ const httpOptions = {
 export class CategoriesService {
 
     private httpApi = {
-        url: 'http://192.168.86.55:8090/api/'
+        url: 'http://192.168.86.55:8080/api/'
     };
 
     public endpoints = {
@@ -50,7 +50,7 @@ export class CategoriesService {
                 categories.push(
                     new CategoryItem(
                         category.name,
-                        category.id,
+                        category.name,
                         category.type
                     )
                 );

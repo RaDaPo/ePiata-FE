@@ -8,7 +8,8 @@ export class ResponseAnnouncements {
     public quantity: number,
     public price: number,
     public startDate: Date,
-    public endDate: Date
+    public endDate: Date,
+    public location: string
   ) { }
 
 }

@@ -21,6 +21,18 @@ body {
     color: #FFF;
 }
 
+/* Modal */
+.modal-open {
+    .modal {
+        &.show {
+            background: rgba(0,0,0,.5)
+        }
+        .modal-dialog {
+            max-width: 800px;
+        }
+    }
+}
+
 /* Select */
 .dropdown-wrapper {
     width: 100%;

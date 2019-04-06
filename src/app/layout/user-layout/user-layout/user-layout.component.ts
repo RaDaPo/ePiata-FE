@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
 
 import $ from 'jquery';
 
@@ -9,9 +9,14 @@ import $ from 'jquery';
 })
 export class UserLayoutComponent implements OnInit {
 
-    constructor() { }
+    private nativeElement;
+
+    constructor(
+        private el: ElementRef
+    ) { }
 
     ngOnInit() {
+        this.nativeElement = this.el.nativeElement;
     }
 
     toggleSidebar() {
@@ -21,6 +26,20 @@ export class UserLayoutComponent implements OnInit {
         } else {
             $('.toggle-sidebar i').addClass('fa-times').removeClass('fa-bars');
         }
+    }
+
+    open(modalIdentificator: string) {
+        $(this.nativeElement).find('#modals-container').addClass('modal-open');
+        $(this.nativeElement).find(modalIdentificator).addClass('show');
+        $(this.nativeElement).find(modalIdentificator).css('display', 'block');
+        $(this.nativeElement).find('.backdrop').addClass('backdrop--open');
+    }
+
+    close(modalIdentificator: string) {
+        $(this.nativeElement).find('#modals-container').removeClass('modal-open');
+        $(this.nativeElement).find(modalIdentificator).removeClass('show');
+        $(this.nativeElement).find(modalIdentificator).css('display', 'none');
+        $(this.nativeElement).find('.backdrop').removeClass('backdrop--open');
     }
 
 }

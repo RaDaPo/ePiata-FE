@@ -6,7 +6,7 @@ import { GeneralLayoutComponent } from './layout/general-layout/general-layout/g
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AnnouncementComponent } from './announcement/announcement/announcement.component';
 import { UserLayoutComponent } from './layout/user-layout/user-layout/user-layout.component';
-import { UserAnnouncementsComponent } from './user/user-announcements/user-announcements.component';
+import { UserOffersComponent } from './user/user-offers/user-offers.component';
 
 const routes: Routes = [
   {
@@ -20,7 +20,7 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'announcements/:category/:county',
+    path: 'offers/:category/:county',
     component: GeneralLayoutComponent,
     children: [
       {
@@ -30,7 +30,7 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'announcements/:category/:county/:searchTerm',
+    path: 'offers/:category/:county/:searchTerm',
     component: GeneralLayoutComponent,
     children: [
       {
@@ -40,7 +40,7 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'announcements/:category/:county/:searchTerm/:id',
+    path: 'offers/:category/:county/:searchTerm/:id',
     component: GeneralLayoutComponent,
     children: [
       {
@@ -51,15 +51,15 @@ const routes: Routes = [
   },
   {
     path: 'user/:id',
-    redirectTo: 'user/:id/announcements'
+    redirectTo: 'user/:id/offers'
   },
   {
-    path: 'user/:id/announcements',
+    path: 'user/:id/offers',
     component: UserLayoutComponent,
     children: [
       {
         path: '',
-        component: UserAnnouncementsComponent
+        component: UserOffersComponent
       }
     ]
   }

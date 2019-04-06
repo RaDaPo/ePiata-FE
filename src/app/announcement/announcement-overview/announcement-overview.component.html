@@ -1,18 +1,18 @@
 <div class="container  mt-4 mb-5">
     <div class="row">
         <div class="col-sm-4  mt-4" *ngFor="let announcement of announcements">
-            <div class="card" [routerLink]="['/announcements', category, county, searchTerm ? searchTerm : 'any', 'id']">
+            <div class="card" [routerLink]="['/offers', category, county, searchTerm ? searchTerm : 'any', 'id']">
                 <div class="card-image">
                     <img class="card-img-top" src="../../../assets/images/dashboard/dashboard.jpg" alt="Card image cap">
                 </div>
                 <div class="card-body">
-                    <h5 class="card-title">{{announcement.name}}</h5>
+                    <h5 class="card-title">{{ announcement.name }}</h5>
                     <div class="row">
                         <div class="col-sm-6">
-                          {{announcement.owner}}
+                            {{ announcement.owner}}
                         </div>
                         <div class="col-sm-6">
-                            {{announcement.}}
+                            {{ announcement.location.city }}(7 km)
                         </div>
                     </div>
                     <div class="row">
