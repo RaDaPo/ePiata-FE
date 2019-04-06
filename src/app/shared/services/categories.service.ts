@@ -50,7 +50,7 @@ export class CategoriesService {
                 categories.push(
                     new CategoryItem(
                         category.name,
-                        category.name,
+                        category.id,
                         category.type
                     )
                 );
