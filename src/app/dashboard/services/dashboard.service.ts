@@ -15,7 +15,7 @@ export class DashboardService {
 
 
     private httpApi = {
-        url: 'http://192.168.86.55:8080/api/',
+        url: 'http://192.168.86.55:8090/api/',
         urlLocal: 'http://localhost:4200/'
     };
 

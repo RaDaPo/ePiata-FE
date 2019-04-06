@@ -4,6 +4,7 @@ import { DashboardLayoutComponent } from './layout/dashboard-layout/dashboard-la
 import { AnnouncementOverviewComponent } from './announcement/announcement-overview/announcement-overview.component';
 import { GeneralLayoutComponent } from './layout/general-layout/general-layout/general-layout.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { AnnouncementComponent } from './announcement/announcement/announcement.component';
 
 const routes: Routes = [
   {
@@ -33,6 +34,16 @@ const routes: Routes = [
       {
         path: '',
         component: AnnouncementOverviewComponent
+      }
+    ]
+  },
+  {
+    path: 'announcements/:category/:county/:searchTerm/:id',
+    component: GeneralLayoutComponent,
+    children: [
+      {
+        path: '',
+        component: AnnouncementComponent
       }
     ]
   }

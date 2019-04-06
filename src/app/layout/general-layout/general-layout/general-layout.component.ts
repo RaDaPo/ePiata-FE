@@ -12,6 +12,7 @@ export class GeneralLayoutComponent implements OnInit {
     county: any;
     searchTerm: any;
     routeParams = false;
+    showFilter = true;
 
     constructor(
         private route: ActivatedRoute
@@ -26,7 +27,9 @@ export class GeneralLayoutComponent implements OnInit {
             this.category = params['category'];
             this.county = params['county'];
             this.searchTerm = params['searchTerm'];
-            console.log(params);
+            if (params['id']) {
+                this.showFilter = false;
+            }
 
             this.routeParams = true;
         });

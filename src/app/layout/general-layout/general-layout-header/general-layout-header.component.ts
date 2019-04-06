@@ -12,6 +12,7 @@ export class GeneralLayoutHeaderComponent implements OnInit {
     @Input() category: any;
     @Input() county: any;
     @Input() searchTerm: string;
+    @Input() showFilter = true;
 
     categories: Array<CategoryItem>;
     filters = [
@@ -63,6 +64,7 @@ export class GeneralLayoutHeaderComponent implements OnInit {
     resetCategoryAndCounty() {
         this.category = this.category === 'any' ? 'Categorie' : this.category;
         this.county = this.county === 'any' ? 'Judet' : this.county;
+        this.searchTerm = this.searchTerm === 'any' ||  this.searchTerm === 'undefined' ? '' : this.searchTerm;
     }
 
     onChangeFilter(value) {
