@@ -10,6 +10,13 @@ import { NgSelectModule } from 'ng-custom-select';
 import { UserLayoutComponent } from './user-layout/user-layout/user-layout.component';
 import { UserLayoutHeaderComponent } from './user-layout/user-layout-header/user-layout-header.component';
 import { UserLayoutSidebarComponent } from './user-layout/user-layout-sidebar/user-layout-sidebar.component';
+import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
+import {
+    MatInputModule,
+    MatFormFieldModule,
+    MatSelectModule
+} from '@angular/material';
+import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({
     declarations: [
@@ -22,10 +29,16 @@ import { UserLayoutSidebarComponent } from './user-layout/user-layout-sidebar/us
         UserLayoutSidebarComponent
     ],
     imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
         CommonModule,
         RouterModule,
         FormsModule,
-        NgSelectModule
+        NgSelectModule,
+        MatInputModule,
+        MatFormFieldModule,
+        MatSelectModule,
+        NoopAnimationsModule
     ]
 })
 export class LayoutModule { }
