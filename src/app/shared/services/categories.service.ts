@@ -11,34 +11,19 @@ const httpOptions = {
 @Injectable({
     providedIn: 'root'
 })
-export class DashboardService {
-
+export class CategoriesService {
 
     private httpApi = {
-        url: 'http://192.168.86.55:8090/api/',
-        urlLocal: 'http://localhost:4200/'
+        url: 'http://192.168.86.55:8090/api/'
     };
 
     public endpoints = {
-        getCounties: () => this.httpApi.urlLocal + 'assets/datas/counties.json',
         getCategories: () => this.httpApi.url + 'categories'
     };
 
     constructor(
         private http: HttpClient
     ) { }
-
-    getCounties(): Observable<any> {
-        return this.http.get(this.endpoints.getCounties(), httpOptions)
-            .pipe(
-                map((response: any) => {
-                    return response;
-                }),
-                catchError((error: HttpErrorResponse) => {
-                    return throwError(error);
-                })
-            );
-    }
 
     getCategories(): Observable<any> {
         return this.http.get(this.endpoints.getCategories(), httpOptions)

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { DashboardService } from './services/dashboard.service';
-import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CategoryItem } from '../models/category-item';
+import { CountiesService } from '../shared/services/counties.service';
+import { CategoriesService } from '../shared/services/categories.service';
 
 @Component({
     selector: 'app-dashboard',
@@ -28,7 +28,8 @@ export class DashboardComponent implements OnInit {
     searchTerm = '';
 
     constructor(
-        private dashboardService: DashboardService,
+        private countiesService: CountiesService,
+        private categoriesService: CategoriesService,
         private router: Router
     ) { }
 
@@ -38,7 +39,7 @@ export class DashboardComponent implements OnInit {
     }
 
     getCounties() {
-        this.dashboardService.getCounties()
+        this.countiesService.getCounties()
             .subscribe(
                 (counties) => {
                     this.counties = [
@@ -50,7 +51,7 @@ export class DashboardComponent implements OnInit {
     }
 
     getCategories() {
-        this.dashboardService.getCategories()
+        this.categoriesService.getCategories()
             .subscribe(
                 (categories) => {
                     this.categories = categories;

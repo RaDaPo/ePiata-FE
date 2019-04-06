@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { DashboardService } from 'src/app/dashboard/services/dashboard.service';
 import { CategoryItem } from 'src/app/models/category-item';
+import { CategoriesService } from 'src/app/shared/services/categories.service';
+import { CountiesService } from 'src/app/shared/services/counties.service';
 
 @Component({
     selector: 'app-general-layout-header',
@@ -31,7 +32,8 @@ export class GeneralLayoutHeaderComponent implements OnInit {
     searchKeys = ['key', 'value'];
 
     constructor(
-        private dashboardService: DashboardService
+        private categoriesService: CategoriesService,
+        private countiesService: CountiesService
     ) { }
 
     ngOnInit() {
@@ -41,7 +43,7 @@ export class GeneralLayoutHeaderComponent implements OnInit {
     }
 
     getCounties() {
-        this.dashboardService.getCounties()
+        this.countiesService.getCounties()
             .subscribe(
                 (counties) => {
                     this.counties = [
@@ -53,7 +55,7 @@ export class GeneralLayoutHeaderComponent implements OnInit {
     }
 
     getCategories() {
-        this.dashboardService.getCategories()
+        this.categoriesService.getCategories()
             .subscribe(
                 (categories) => {
                     this.categories = categories;
