@@ -20,6 +20,7 @@ export class AnnouncementService {
 
     public endpoints = {
         getAllAnnouncements: () => this.httpApi.url + '/all',
+        getAnnouncements: () => this.httpApi.url,
         getAnnouncement: () => this.httpApi.url,
         deleteAnnouncement: () => this.httpApi.url,
         updateAnnouncement: () => this.httpApi.url,
@@ -34,7 +35,20 @@ export class AnnouncementService {
     getAllAnnouncements(request: RequestAnnouncements): Observable<Array<ResponseAnnouncements>> {
         request.latitude = localStorage.getItem('latitude');
         request.longitude = localStorage.getItem('longitude');
-        console.log(request);
+        request.category = request.category;
+
+        if (!request.category && !request.searchTerm && !request.location.county) {
+            return this.http.get(this.endpoints.getAnnouncements(), httpOptions)
+                .pipe(
+                    map((response: Array<ResponseAnnouncements>) => {
+                        return response;
+                    }),
+                    catchError((error: HttpErrorResponse) => {
+                        return throwError(error);
+                    })
+                );
+        }
+
         return this.http.post(this.endpoints.getAllAnnouncements(), request, httpOptions)
             .pipe(
                 map((response: Array<ResponseAnnouncements>) => {

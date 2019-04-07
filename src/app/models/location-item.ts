@@ -7,7 +7,9 @@ export class LocationItem {
         public streetNo?: number,
         public latitude?: string,
         public longitude?: string,
-        public zip?: string
+        public zip?: string,
+        public distance?: string,
+        public timeToDestination?: string
     ) { }
 
 }

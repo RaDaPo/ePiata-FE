@@ -20,6 +20,9 @@ body {
 .color-white {
     color: #FFF;
 }
+.cdk-overlay-container {
+    z-index: 1051;
+}
 
 /* Modal */
 .modal-open {
@@ -29,6 +32,16 @@ body {
         }
         .modal-dialog {
             max-width: 800px;
+        }
+
+        .modal-select {
+            border: none;
+            border-radius: 0;
+            border-bottom: 1px solid #949494;
+
+            &:focus {
+                color: #495057;
+            }
         }
     }
 }
@@ -190,6 +203,27 @@ body {
         img {
             -webkit-transform: scale(1.08);
             transform: scale(1.08);
+        }
+    }
+}
+
+.dropdown-user {
+    display: inline-block;
+
+    button {
+        position: relative!important;
+        min-width: auto!important;
+        background: transparent!important;
+        border: none!important;
+        box-shadow: none!important;
+        font-weight: 500;
+
+        &:hover,
+        &:focus,
+        &:active {
+            background: transparent!important;
+            border: none!important;
+            box-shadow: none!important;
         }
     }
 }

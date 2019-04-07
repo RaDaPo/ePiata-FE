@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
         <div class="row w-100">
-            <div class="col-6 col-sm-4">
+            <div class="col-4 col-sm-4">
                 <div class="input-group">
                     <input class="form-control search-input"
                         type="text"
@@ -9,11 +9,26 @@
                         [(ngModel)]="searchTerm"/>
                 </div>
             </div>
-            <div class="col-6 col-sm-4">
+            <div class="col-4 col-sm-4">
                 <button type="button"
                     class="btn btn-primary btn-lg text-left">
                     <i class="fa fa-search"></i> Cauta
                 </button>
+            </div>
+            <div class="col-4 col-sm-4 text-right dropdown dropdown-user">
+                <button class="btn btn-secondary dropdown-toggle"
+                    type="button"
+                    id="dropdownMenuButton"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false">
+                    Mihai P.
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#" [routerLink]="['/user', '1']">Setari</a>
+                    <a class="dropdown-item" href="#">Editare profil</a>
+                    <a class="dropdown-item" href="#">Logout</a>
+                </div>
             </div>
         </div>
     </div>

@@ -38,23 +38,106 @@
                 <div class="modal-body mb-3">
                     <div class="row mt-3">
                         <div class="col-sm-10 offset-sm-1">
+                            <file-drop class="custom-drop" dropZoneLabel="Drop files here" (onFileDrop)="dropped($event)" 
+                            (onFileOver)="fileOver($event)" (onFileLeave)="fileLeave($event)">
+                                <span>Adauga imaginea in acest spatiu...  </span>
+                            </file-drop>
+                            <div class="row mt-2">
+                                <div class="col-12">
+                                    <ng-container *ngFor="let item of images; let i=index">
+                                        <span *ngIf="item.relativePath">
+                                            Imaginea a fost incarcata - {{ item.relativePath }}
+                                        </span>
+                                    </ng-container>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-sm-10 offset-sm-1">
                             <mat-form-field class="w-100">
-                                <input matInput placeholder="Denumire produs" value="">
+                                <input matInput placeholder="Denumire produs" value="" [(ngModel)]="offer.name">
                             </mat-form-field>
                         </div>
                     </div>
                     <div class="row mt-3">
                         <div class="col-sm-10 offset-sm-1">
                             <mat-form-field class="w-100">
-                                <textarea matInput placeholder="Descriere"></textarea>
+                                <textarea matInput placeholder="Descriere" [(ngModel)]="offer.description"></textarea>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div *ngIf="categories" class="row mt-3">
+                        <div class="col-sm-10 offset-sm-1">
+                            <label>Categorie</label>
+                            <select class="form-control modal-select" [(ngModel)]="offer.category">
+                                <option *ngFor="let category of categories" value="{{category.value}}">
+                                    {{category.key}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-sm-10 offset-sm-1">
+                            <div class="row">
+                                <div class="col-6">
+                                    <mat-form-field class="w-100">
+                                        <input matInput [matDatepicker]="picker1" [min]="minDate" placeholder="Perioada de inceput a ofertei" [(ngModel)]="offer.startDate">
+                                        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                                        <mat-datepicker #picker1></mat-datepicker>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-6">
+                                    <mat-form-field class="w-100">
+                                        <input matInput [matDatepicker]="picker2" [min]="offer.startDate" placeholder="Perioada de sfarsit a ofertei" [(ngModel)]="offer.endDate">
+                                        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                                        <mat-datepicker #picker2></mat-datepicker>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-sm-10 offset-sm-1">
+                            <mat-form-field class="w-100">
+                                <input matInput type="number" placeholder="Pret" [(ngModel)]="offer.price">
                             </mat-form-field>
                         </div>
                     </div>
                     <div class="row mt-3">
                         <div class="col-sm-10 offset-sm-1">
-                            <!-- <mat-select placeholder="Select">
-                                <mat-option value="option">Option</mat-option>
-                            </mat-select> -->
+                            <label selected>Unitate</label>
+                            <select class="form-control modal-select w-100" [(ngModel)]="offer.unit">
+                                <option value="{{units.KG}}">{{ units.KG }}</option>
+                                <option value="{{units.KG}}">{{ units.PIECE }}</option>
+                                <option value="{{units.KG}}">{{ units.LITER }}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-sm-10 offset-sm-1">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <mat-form-field class="w-100">
+                                        <input matInput placeholder="Oras" [(ngModel)]="offer.location.city">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-sm-6">
+                                    <mat-form-field class="w-100">
+                                        <input matInput placeholder="Judet" [(ngModel)]="offer.location.county">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-sm-6">
+                                    <mat-form-field class="w-100">
+                                        <input matInput placeholder="Strada" [(ngModel)]="offer.location.street">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-sm-6">
+                                    <mat-form-field class="w-100">
+                                        <input matInput type="number" placeholder="Numar" [(ngModel)]="offer.location.streetNo">
+                                    </mat-form-field>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -63,7 +146,7 @@
                         <i class="fa fa-minus mr-2"></i>
                         Renunta
                     </button>
-                    <button type="button" class="btn btn-primary">
+                    <button type="button" class="btn btn-primary" (click)="addOffer()">
                         <i class="fa fa-plus mr-2"></i>
                         Adauga
                     </button>

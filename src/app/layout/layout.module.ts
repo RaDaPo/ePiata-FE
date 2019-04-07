@@ -10,13 +10,17 @@ import { NgSelectModule } from 'ng-custom-select';
 import { UserLayoutComponent } from './user-layout/user-layout/user-layout.component';
 import { UserLayoutHeaderComponent } from './user-layout/user-layout-header/user-layout-header.component';
 import { UserLayoutSidebarComponent } from './user-layout/user-layout-sidebar/user-layout-sidebar.component';
-import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
     MatInputModule,
     MatFormFieldModule,
-    MatSelectModule
+    MAT_SELECT_SCROLL_STRATEGY,
+    MatDatepickerModule,
+    MatNativeDateModule
 } from '@angular/material';
 import { BrowserModule } from '@angular/platform-browser';
+import { FileDropModule } from 'ngx-file-drop';
+
 
 @NgModule({
     declarations: [
@@ -37,8 +41,12 @@ import { BrowserModule } from '@angular/platform-browser';
         NgSelectModule,
         MatInputModule,
         MatFormFieldModule,
-        MatSelectModule,
-        NoopAnimationsModule
+        MatDatepickerModule,
+        MatNativeDateModule,
+        FileDropModule
+    ],
+    providers: [
+        { provide: MAT_SELECT_SCROLL_STRATEGY, useValue: {} }
     ]
 })
 export class LayoutModule { }

@@ -41,7 +41,7 @@ export class GeneralLayoutHeaderComponent implements OnInit {
         this.resetCategoryAndCounty();
         this.getCounties();
         this.getCategories();
-        this.getCategoryById(this.category);
+        this.getCategoryById();
     }
 
     getCounties() {
@@ -65,13 +65,16 @@ export class GeneralLayoutHeaderComponent implements OnInit {
             );
     }
 
-    getCategoryById(categoryId: number) {
-        this.categoriesService.getById(categoryId)
-            .subscribe(
-                (category) => {
-                    this.categoryModel = category;
-                }
-            );
+    getCategoryById() {
+        const categoryId = this.category === 'Categorie' ? null : this.category;
+        if (categoryId) {
+            this.categoriesService.getById(categoryId)
+                .subscribe(
+                    (category) => {
+                        this.categoryModel = category;
+                    }
+                );
+        }
     }
 
     resetCategoryAndCounty() {
