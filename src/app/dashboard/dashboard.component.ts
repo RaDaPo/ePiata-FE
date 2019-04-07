@@ -4,8 +4,6 @@ import { CategoryItem } from '../models/category-item';
 import { CountiesService } from '../shared/services/counties.service';
 import { CategoriesService } from '../shared/services/categories.service';
 
-import $ from 'jquery';
-
 @Component({
     selector: 'app-dashboard',
     templateUrl: './dashboard.component.html',
@@ -91,12 +89,6 @@ export class DashboardComponent implements OnInit {
                 (position) => {
                     localStorage.setItem('latitude', position.coords.latitude.toString());
                     localStorage.setItem('longitude', position.coords.longitude.toString());
-
-                    // const url = 'https://reverse.geocoder.api.here.com/6.2/reversegeocode.json?prox='+position.coords.latitude.toString()+'%2C-'+position.coords.longitude.toString()+'&mode=retrieveAddresses&&&app_id=knnbN1GnjwVdTh62SSdB&app_code=Fcs2O5Pm7OPu_OSZEQFHGA';
-                    // console.log(url);
-                    // $.get(url, function (result) {
-                    //     console.log(result);
-                    // });
                 },
                 error => {
                     switch (error.code) {

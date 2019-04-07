@@ -18,7 +18,8 @@ export class CategoriesService {
     };
 
     public endpoints = {
-        getCategories: () => this.httpApi.url + 'categories'
+        getCategories: () => this.httpApi.url + 'categories',
+        getCategory: () => this.httpApi.url + 'categories/id/'
     };
 
     constructor(
@@ -37,6 +38,18 @@ export class CategoriesService {
             );
     }
 
+    getById(categoryId): Observable<any> {
+        return this.http.get(this.endpoints.getCategory() + categoryId, httpOptions)
+            .pipe(
+                map((response: any) => {
+                    return this.mapCategory(response);
+                }),
+                catchError((error: HttpErrorResponse) => {
+                    return throwError(error);
+                })
+            );
+    }
+
     mapCategories(response) {
         const categories = [];
         categories.push(
@@ -48,16 +61,20 @@ export class CategoriesService {
         response.map(
             (category) => {
                 categories.push(
-                    new CategoryItem(
-                        category.name,
-                        category.name,
-                        category.type
-                    )
+                    this.mapCategory(category)
                 );
             }
         );
 
         return categories;
+    }
+
+    mapCategory(category) {
+        return new CategoryItem(
+            category.name,
+            category.id,
+            category.type
+        );
     }
 
 }

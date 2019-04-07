@@ -14,6 +14,7 @@ export class GeneralLayoutHeaderComponent implements OnInit {
     @Input() county: any;
     @Input() searchTerm: string;
     @Input() showFilter = true;
+    categoryModel: CategoryItem;
 
     categories: Array<CategoryItem>;
     filters = [
@@ -40,6 +41,7 @@ export class GeneralLayoutHeaderComponent implements OnInit {
         this.resetCategoryAndCounty();
         this.getCounties();
         this.getCategories();
+        this.getCategoryById(this.category);
     }
 
     getCounties() {
@@ -59,6 +61,15 @@ export class GeneralLayoutHeaderComponent implements OnInit {
             .subscribe(
                 (categories) => {
                     this.categories = categories;
+                }
+            );
+    }
+
+    getCategoryById(categoryId: number) {
+        this.categoriesService.getById(categoryId)
+            .subscribe(
+                (category) => {
+                    this.categoryModel = category;
                 }
             );
     }
